@@ -14,4 +14,9 @@ echo -e "\n\n Partitition Configuration: \n\n" >> $FILE
 fdisk -l | head -17 >> $FILE
 
 echo -e "\n\n Mounted Filesystems: \n\n" >> $FILE
-df -hT | grep -v tmp >> $FILE 
+df -hT | grep -v tmp >> $FILE
+
+echo -e "\n\n RAID Configuration: \n\n" >> $FILE
+
+mdadm --detail /dev/md0 >> $FILE
+ 
